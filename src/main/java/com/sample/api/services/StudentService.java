@@ -16,8 +16,13 @@ import java.util.List;
 @Service
 public class StudentService {
 
-    public List<StudentHouse> getAllStudentList;
-
-    public void getAllStudent() {
+    public List<StudentHouse> getAllStudent() {
+        return List.of(
+                StudentHouse.builder().name("Gryffindor").size(5).build(),
+                StudentHouse.builder().name("Slytherin").size(5).build(),
+                StudentHouse.builder().name("Hufflepuff").size(5).build()
+        );
     }
+
+
 }

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @RestController - exposing an endpoint starts here and allows Controller to handle the path
  */
@@ -21,18 +23,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentController {
 
     // @autowired allowing to connect this service to controller
-//    @Autowired
+    @Autowired
     private StudentService studentService;
 
+
     @GetMapping("/students")
-    public String getStudent() {
+    public List<StudentHouse> getStudent() {
 
-        StudentHouse studentHouse = StudentHouse.builder().name("Gryffindor").size(4).build();
-        studentHouse.getName();
-
-        this.studentService.getAllStudent();
-
-        return "";
+        return this.studentService.getAllStudent();
     }
 
 }
