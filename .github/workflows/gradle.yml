@@ -28,8 +28,11 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Build and Test with Gradle
-      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+    - name: Run chmod to make gradlew executable
+      run: chmod +x ./gradlew
+    - name: Setup Gradle to generate and submit dependency graphs
+      uses: gradle/gradle-build-action@v2.8.0 # v2.6.0
       with:
-        arguments: build
+        gradle-version: 8.4
+        dependency-graph: generate
       run: ./gradlew clean build
