@@ -10,4 +10,5 @@ RUN gradle bootJar
 #Start from a java:17
 RUN mv /home/gradle/project/build/libs/springboot-images-new.jar /home/gradle/project/springboot-images-new.jar
 EXPOSE 8080
-ENTRYPOINT["java","-jar","/springboot-images-new.jar"]
+ENTRYPOINT["java", "-jar", "/springboot-images-new.jar"]
+
