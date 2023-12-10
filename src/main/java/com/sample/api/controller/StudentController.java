@@ -6,10 +6,7 @@ import com.sample.api.services.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,20 +29,26 @@ public class StudentController {
 
     // Pageable
 //    @GetMapping("/students")
-//    public List<StudentHouse> getStudent(Pageable page) {
-//        System.out.println("page=" + page.getNumberOfPages());
+//    public List<StudentHouse> getStudentPage(Pageable page) {
+//        System.out.println("page=" + page.getPageNumber());
 //        return this.studentService.getAllStudent();
 //    }
 
 
     /**
-     * if you want to accept parameter in this method
+     * if you want to accept parameter in this method you can put annotation like @PathVariable
      * https://www.baeldung.com/spring-requestmapping
      */
     @GetMapping("/{name}")
     public List<StudentHouse> getStudentHouseByName(@PathVariable String name) {
-
         return this.studentService.getAllStudent();
     }
 
+
+    @PostMapping("/")
+    public void createStudentHouse(@RequestBody StudentHouse studentHouse) {
+        System.out.println("Student house name = " + studentHouse.getName());
+        System.out.println("Student House size = " + studentHouse.getSize());
+
+    }
 }
