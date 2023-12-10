@@ -38,3 +38,8 @@ tasks.named('bootBuildImage') {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+bootJar {
+	// Configure the output name of the JAR file
+	archiveFileName = 'springboot-images-new.jar'
+}
