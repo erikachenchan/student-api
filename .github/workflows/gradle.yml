@@ -40,7 +40,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6.2
         with:
           image: erikachenchan/springboot-images-new
-          tags: latest
+          tags: v1, latest
           registry: docker.io
           dockerfile: Dockerfile.ci
           username: ${{ secrets.DOCKER_USERNAME }}
